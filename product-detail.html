@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gomitas Hierba Mística | Santuario Detalle | La Tortilla Mágica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <canvas id="smoke-canvas"></canvas>
+    <div class="mistic-bg-overlay"></div>
+
+    <!-- Header -->
+    <header id="main-header" class="scrolled">
+        <a href="index.html" class="logo font-display">
+            LA <span class="logo-accent">TORTILLA</span> MÁGICA
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a href="index.html#catalog" class="nav-link">Armamento</a>
+            <a href="terms.html" class="nav-link">Marco Legal</a>
+            <a href="https://wa.me/522311024672" class="nav-link">Rito Directo</a>
+        </nav>
+
+        <div class="header-actions">
+            <div class="discrete-badge">
+                <i data-lucide="shield-check"></i>
+                <span>Discreto</span>
+            </div>
+
+            <button class="cart-trigger" id="cart-btn" aria-label="Abrir Carrito" title="Abrir Carrito">
+                <i data-lucide="shopping-cart"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú" title="Abrir Menú">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="product-detail-container">
+        <div class="detail-grid">
+            <!-- Left: Gallery -->
+            <div class="product-gallery">
+                <div class="main-image" id="main-product-image">
+                    <img src="lavanda_edible_gummies_1770187524641.png" alt="Gomitas Hierba Mística">
+                </div>
+                <div class="thumbnails">
+                    <div class="thumb-item active" onclick="changeImage('lavanda_edible_gummies_1770187524641.png')">
+                        <img src="lavanda_edible_gummies_1770187524641.png" alt="Vista 1">
+                    </div>
+                    <div class="thumb-item" onclick="changeImage('lavanda_gummies_detail_1770188033290.png')">
+                        <img src="lavanda_gummies_detail_1770188033290.png" alt="Vista 2">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Info -->
+            <div class="product-info-box">
+                <div class="product-category">Comestibles Premium</div>
+                <h1 class="detail-title font-display">Gomitas Hierba Mística</h1>
+                <div class="detail-price">$650 MXN</div>
+
+                <p class="detail-description">
+                    Una infusión ceremonial diseñada para la relajación profunda. Elaboradas con extractos puros y
+                    lavanda silvestre, estas gomitas son el acompañante ideal para el cierre de un ritual exigente.
+                    Tacto suave, efecto trascendental.
+                </p>
+
+                <div class="specs-table">
+                    <div class="spec-row">
+                        <span class="spec-label">Concentración</span>
+                        <span class="spec-value">25mg CBD / Unidad</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Pureza</span>
+                        <span class="spec-value">99.8% Aislado</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Contenido</span>
+                        <span class="spec-value">10 Piezas</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Sabor</span>
+                        <span class="spec-value">Lavanda & Miel</span>
+                    </div>
+                </div>
+
+                <div class="action-row">
+                    <div class="qty-input">
+                        <button class="qty-btn" onclick="updateQty(-1)">-</button>
+                        <span class="qty-val" id="qty-count">1</span>
+                        <button class="qty-btn" onclick="updateQty(1)">+</button>
+                    </div>
+                    <button class="btn-primary" id="add-to-cart-detail">
+                        Añadir al Grial
+                    </button>
+                </div>
+
+                <div class="product-meta mt-2">
+                    <div class="meta-item">
+                        <i data-lucide="Zap"></i>
+                        <span>Efecto: Relajación Zen</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secondary Content -->
+        <section class="mystical-narrative">
+            <div class="narrative-content">
+                <h2 class="font-display">La Ciencia de las Sombras</h2>
+                <p>
+                    "No es solo un comestible, es una frecuencia. Cada unidad ha sido calibrada para interactuar con tus
+                    receptores de manera progresiva, evitando picos de ansiedad y favoreciendo una claridad mental bajo
+                    el sol mexicano y la fuerza del volcán."
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3 class="font-display">¿Quiénes Somos?</h3>
+                <p>
+                    Especialistas en bienestar integral y parafernalia de lujo. Proveemos de forma exclusiva accesorios
+                    para fumadores, aceites de CBD, cosmética avanzada y suplementos que cumplen con los más altos
+                    estándares legales. <a href="quienes-somos.html" class="accent-link">Saber más</a>
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4 class="font-display">Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Santuario Principal</a></li>
+                    <li><a href="index.html#catalog">Armamento</a></li>
+                    <li><a href="terms.html">Marco Legal</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 class="font-display">Contacto</h4>
+                <ul>
+                    <li><a href="https://wa.me/522311024672">WhatsApp Directo</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Telegram</a></li>
+                </ul>
+            </div>
+            <div class="footer-about">
+                <h3 class="font-display"><a href="terms.html" class="footer-title-link">Entidad Responsable</a></h3>
+                <p class="footer-legal-summary">
+                    Operamos bajo un estricto marco de cumplimiento normativo mediante age-gating y trazabilidad de
+                    productos. Proporcionamos transparencia técnica y jurídica para mitigar estigmas y asegurar una
+                    experiencia de usuario protegida y experta.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 La Tortilla Mágica. Todos los derechos reservados.</p>
+            <p>Hecho en México. Consumo responsable.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h2 class="font-display">Tu Selección</h2>
+            <button class="close-cart" id="close-cart" title="Cerrar carrito">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="cart-empty-message">Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-value">$0 MXN</span>
+            </div>
+            <button class="btn-primary" id="checkout-btn">Finalizar Pedido</button>
+            <button class="btn-outline mt-1 close-cart-btn">Seguir Comprando</button>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        lucide.createIcons();
+
+        function changeImage(src) {
+            document.querySelector('#main-product-image img').src = src;
+            document.querySelectorAll('.thumb-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.querySelector('img').src.includes(src)) item.classList.add('active');
+            });
+        }
+
+        let currentQty = 1;
+
+        function updateQty(val) {
+            currentQty = Math.max(1, currentQty + val);
+            document.getElementById('qty-count').textContent = currentQty;
+        }
+
+        document.getElementById('add-to-cart-detail').addEventListener('click', () => {
+            const name = "Gomitas Hierba Mística";
+            const price = "$650 MXN";
+            if (window.addToCartManual) {
+                window.addToCartManual(name, price, currentQty);
+            }
+        });
+    </script>
+</body>
+
+</html>

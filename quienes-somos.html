@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quiénes Somos? | La Tortilla Mágica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <canvas id="smoke-canvas"></canvas>
+    <div class="mistic-bg-overlay"></div>
+
+    <header id="main-header" class="scrolled">
+        <a href="index.html" class="logo font-display">
+            LA <span class="logo-accent">TORTILLA</span> MÁGICA
+        </a>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="index.html#catalog" class="nav-link">Armamento</a>
+            <a href="terms.html" class="nav-link">Marco Legal</a>
+            <a href="https://wa.me/522311024672" class="nav-link">Rito Directo</a>
+        </nav>
+        <div class="header-actions">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú" title="Abrir Menú">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="product-detail-container">
+        <section class="checkout-section">
+            <h1 class="ceremonial-title font-display legal-title">NUESTRO LINAJE Y PROPÓSITO</h1>
+
+            <div class="detail-description legal-container">
+                <div class="legal-section-item">
+                    <h3 class="font-display legal-subtitle">MÁS QUE UNA MARCA, UN SANTUARIO</h3>
+                    <p>
+                        En <strong>La Tortilla Mágica</strong>, no solo proveemos herramientas; custodiamos una
+                        tradición de bienestar y elevación. Nuestra misión es democratizar el acceso a productos de alta
+                        calidad, fundamentados en la ciencia y el respeto a la planta, eliminando el estigma a través de
+                        la sofisticación absoluta.
+                    </p>
+                </div>
+
+                <div class="mystical-divider"></div>
+
+                <div class="legal-section-item">
+                    <h3 class="font-display legal-subtitle">ESPECIALIZACIÓN TÉCNICA</h3>
+                    <p class="mb-2">Nuestra labor se dedica exclusivamente a categorías seleccionadas bajo los más altos
+                        estándares de pureza:</p>
+                    <ul class="thematic-list">
+                        <li>
+                            <strong>Accesorios para Fumadores:</strong> Herramientas de precisión diseñadas para el
+                            ritual diario, desde grinders de grado médico hasta sistemas de vaporización avanzados que
+                            respetan la integridad del material.
+                        </li>
+                        <li>
+                            <strong>Aceites de CBD:</strong> Extractos ancestrales para uso tópico o sublingual,
+                            clasificados rigurosamente según su origen volcánico y pureza técnica.
+                        </li>
+                        <li>
+                            <strong>Cuidado Tópico:</strong> Cremas, bálsamos y ungüentos con CBD formulados para la
+                            recuperación física y el bienestar dérmico.
+                        </li>
+                        <li>
+                            <strong>Cosmética Avanzada:</strong> Línea de cuidado personal que integra las propiedades
+                            del CBD como ingrediente activo fundamental.
+                        </li>
+                        <li>
+                            <strong>Suplementos de Bienestar:</strong> Productos diseñados para el equilibrio diario,
+                            cumpliendo estrictamente con la normativa sanitaria vigente.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="index.html" class="btn-primary mt-2">VOLVER AL SANTUARIO</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3 class="font-display">¿Quiénes Somos?</h3>
+                <p>
+                    Especialistas en bienestar integral y parafernalia de lujo. Proveemos de forma exclusiva accesorios
+                    para fumadores, aceites de CBD, cosmética avanzada y suplementos que cumplen con los más altos
+                    estándares legales. <a href="quienes-somos.html" class="accent-link">Saber más</a>
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4 class="font-display">Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Santuario Principal</a></li>
+                    <li><a href="index.html#catalog">Armamento</a></li>
+                    <li><a href="terms.html">Marco Legal</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 class="font-display">Contacto</h4>
+                <ul>
+                    <li><a href="https://wa.me/522311024672">WhatsApp Directo</a></li>
+                </ul>
+            </div>
+            <div class="footer-about">
+                <h3 class="font-display"><a href="terms.html" class="footer-title-link"
+                        title="Ir a Términos y Condiciones">Entidad Responsable</a></h3>
+                <p class="footer-legal-summary">
+                    Operamos bajo un estricto marco de cumplimiento normativo mediante age-gating y trazabilidad de
+                    productos. Proporcionamos transparencia técnica y jurídica para mitigar estigmas y asegurar una
+                    experiencia de usuario protegida y experta.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 La Tortilla Mágica. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

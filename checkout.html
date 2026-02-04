@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Pedido | La Tortilla Mágica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <canvas id="smoke-canvas"></canvas>
+    <div class="mistic-bg-overlay"></div>
+
+    <header id="main-header" class="scrolled">
+        <a href="index.html" class="logo">
+            LA <span>TORTILLA</span> MÁGICA
+        </a>
+    </header>
+
+    <main class="centered-container" id="checkout-content">
+        <!-- Card 1: Confirm Order (Ceremonial) -->
+        <div class="ceremonial-card" id="confirm-card">
+            <div class="ceremonial-icon">𓎂</div>
+            <h1 class="ceremonial-title font-display">SELLA EL PACTO</h1>
+            <p class="ceremonial-text">
+                El rito está por concluir. Al confirmar, abres el canal directo para que tu armamento sea entregado con
+                el sigilo absoluto que exigen las sombras.
+            </p>
+
+            <div id="checkout-summary-view" class="checkout-preview-box">
+                <!-- Summary will be injected here -->
+            </div>
+
+            <button class="whatsapp-link" onclick="handleConfirmation()">
+                <i data-lucide="message-circle"></i> Confirmar por WhatsApp
+            </button>
+        </div>
+
+        <!-- Card 2: Success Message (Hidden initially) -->
+        <div class="ceremonial-card hidden" id="success-card">
+            <div class="ceremonial-icon success-icon">✧</div>
+            <h1 class="ceremonial-title font-display">Trascendencia Iniciada</h1>
+            <p class="ceremonial-text">
+                Tu solicitud ha sido enviada. Un guía se pondrá en contacto contigo en breve a través de WhatsApp para
+                finalizar el proceso y asegurar tu entrega.
+            </p>
+            <a href="index.html" class="btn-primary w-100">Volver al Santuario</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3 class="font-display">¿Quiénes Somos?</h3>
+                <p>
+                    Especialistas en bienestar integral y parafernalia de lujo. Proveemos de forma exclusiva accesorios
+                    para fumadores, aceites de CBD, cosmética avanzada y suplementos que cumplen con los más altos
+                    estándares legales. <a href="quienes-somos.html" class="accent-link">Saber más</a>
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4 class="font-display">Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Santuario Principal</a></li>
+                    <li><a href="index.html#catalog">Armamento</a></li>
+                    <li><a href="terms.html">Marco Legal</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 class="font-display">Contacto</h4>
+                <ul>
+                    <li><a href="https://wa.me/522311024672">WhatsApp Directo</a></li>
+                </ul>
+            </div>
+            <div class="footer-about">
+                <h3 class="font-display"><a href="terms.html" class="footer-title-link">Entidad Responsable</a></h3>
+                <p class="footer-legal-summary">
+                    Operamos bajo un estricto marco de cumplimiento normativo mediante age-gating y trazabilidad de
+                    productos. Proporcionamos transparencia técnica y jurídica para mitigar estigmas y asegurar una
+                    experiencia de usuario protegida y experta.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 La Tortilla Mágica. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        lucide.createIcons();
+
+        const cartData = JSON.parse(localStorage.getItem('cart-preview')) || [];
+
+        // Show summary inside the card
+        document.addEventListener('DOMContentLoaded', () => {
+            const summaryPreview = document.getElementById('checkout-summary-view');
+            if (!summaryPreview) return;
+
+            if (cartData.length === 0) {
+                summaryPreview.innerHTML = '<p class="text-muted-sm">Tu carrito está vacío.</p>';
+                return;
+            }
+
+            let total = 0;
+            const itemsHtml = cartData.map(item => {
+                const priceNum = parseInt(item.price.replace(/[^0-9]/g, ''));
+                total += priceNum * item.quantity;
+                return `<div class="checkout-summary-line">
+                            <span>${item.name} x${item.quantity}</span>
+                            <span>${item.price}</span>
+                        </div>`;
+            }).join('');
+
+            summaryPreview.innerHTML = `
+                <h4 class="checkout-summary-title">Resumen de Pedido</h4>
+                ${itemsHtml}
+                <div class="checkout-total-row">
+                    <span>Total Estimado</span>
+                    <span>$${total.toLocaleString()} MXN</span>
+                </div>
+            `;
+        });
+
+        function handleConfirmation() {
+            if (cartData.length === 0) return;
+
+            // Prepare WhatsApp message
+            let total = 0;
+            const itemsText = cartData.map(item => {
+                const priceNum = parseInt(item.price.replace(/[^0-9]/g, ''));
+                total += priceNum * item.quantity;
+                return `- ${item.name} (x${item.quantity}) : ${item.price}`;
+            }).join('%0A');
+
+            const message = `Hola La Tortilla Mágica, me gustaría confirmar mi pedido:%0A%0A${itemsText}%0A%0ATotal: $${total.toLocaleString()} MXN%0A%0APor favor, confirmen la entrega discreta. Gracias.`;
+            const phone = "522311024672"; // Número actualizado
+            const waUrl = `https://wa.me/${phone}?text=${message}`;
+
+            // Show Success Card and Open WhatsApp
+            document.getElementById('confirm-card').classList.add('hidden');
+            document.getElementById('success-card').classList.remove('hidden');
+
+            // Clear cart
+            localStorage.removeItem('cart-preview');
+
+            // Optional: Redirect to WA after small delay or let user click
+            window.open(waUrl, '_blank');
+        }
+    </script>
+</body>
+
+</html>
